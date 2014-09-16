@@ -1,0 +1,8 @@
+#!/bin/bash
+#Program to count number of files and subdirectories in a directory
+
+echo -n 'Files = '
+ls -l | grep ^- | wc -l		#organizes files into lines and counts lines
+
+echo -n 'Subdirectories = '
+ls -l | grep ^d | wc -l		#organizes subdirectories into lines and counts lines
