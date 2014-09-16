@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo 'Input temperature in deg. C'	
+read f					#Asks user for input temperature
+
+a=$(echo "scale=2;$f-32" | bc)		#runs caculations through bc to display decimal
+echo $a
+b=$(echo "scale=2;$a*5" | bc)	
+echo $b
+TEMP=$(echo "scale=2;$b/9" | bc) 	
+echo 'Temp =' $TEMP 'deg. C'
