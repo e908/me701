@@ -1,0 +1,33 @@
+#!/bin/bash
+#This program moves a file to the trash
+
+echo "Enter file to be moved..."		#Calls for file to be moved
+read f
+
+cd /home/santa					#Changes current directory to home directory
+
+if [ -d trash ]; then				#Checks to see if trash directory exists 
+	echo 'Trash directory exists, moving file'	
+else
+	mkdir trash				#Creates trash directory if none exists
+fi
+
+find $PWD -type f | grep "$f"			#Locates desired file
+
+echo 'Please enter location of file as provided above' 
+echo 'If no path is provided type exit'
+read l						
+
+if [ $l == exit ]; then				#Moves to file directory
+	echo 'File does not exist'
+else
+	cd $l					
+
+	if [ -f $f ]; then			#Moves file to trash directory
+		mv $f /home/santa/trash
+		echo 'File successfully moved.'
+	else
+		echo 'File does not exist'
+	fi
+
+fi
